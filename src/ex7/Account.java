@@ -12,6 +12,12 @@ public class Account {
 		this.name = name;
 		this.balance = balance;
 	}
+	
+	public Account(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
 	public String getId() {
 		return id;
@@ -38,10 +44,22 @@ public class Account {
 			System.out.println("Amount exceeded balance");
 		}
 		return balance;
-		
-	public int transferTo(Account another, ) {
-		
 	}
+	public int transferTo(Account another, int amount) {
+		if (amount<=balance) {
+			this.balance -= amount;
+			another.balance += amount;
+		}
+		else {
+			System.out.println("Amount exceeded balance");
+		}
+		return balance;
+	}
+
+	public String toString() {
+		return "Account [id=" + id + ", name=" + name + ", balance=" + balance + "]";
+	}
+	
 	
 	
 	
